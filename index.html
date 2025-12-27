@@ -58,5 +58,26 @@
 </footer>
 
 <script src="script.js"></script>
+<!-- ===== ADMIN PANEL START ===== -->
+<section id="admin">
+    <h2>Admin Login</h2>
+
+    <input type="email" id="adminEmail" placeholder="Admin Email"><br><br>
+    <input type="password" id="adminPass" placeholder="Password"><br><br>
+
+    <button onclick="adminLogin()">Login</button>
+
+    <hr>
+
+    <h3>Orders</h3>
+    <div id="orders"></div>
+</section>
+<!-- ===== ADMIN PANEL END ===== -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="script.js"></script>
+
 </body>
 </html>
