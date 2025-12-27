@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chai Ki Chuski</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Chai Ki Chuski - Best chai cafe with snacks and good vibes">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<header>
+    <h1>Chai Ki Chuski ☕</h1>
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#cart">Cart</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <button onclick="toggleDarkMode()">🌙</button>
+</header>
+
+<section class="hero">
+    <h2>Fresh Chai, Fresh Vibes</h2>
+    <p>Best chai & snacks in town</p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid" id="menuItems"></div>
+</section>
+
+<section id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cartList"></ul>
+    <h3>Total: ₹<span id="total">0</span></h3>
+    <button onclick="placeOrder()">Order on WhatsApp</button>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Your Name"><br><br>
+        <input type="email" id="email" placeholder="Your Email"><br><br>
+        <textarea id="message" placeholder="Your Message"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Chai Ki Chuski</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

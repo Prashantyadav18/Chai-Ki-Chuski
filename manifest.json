@@ -1,0 +1,8 @@
+{
+  "name": "Chai Ki Chuski",
+  "short_name": "Chai",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff8f0",
+  "theme_color": "#6f4e37"
+}
