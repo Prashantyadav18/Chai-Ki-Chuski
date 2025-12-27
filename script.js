@@ -1,3 +1,18 @@
+// ===== FIREBASE CONFIG =====
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_API_KEY",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  projectId: "PROJECT_ID",
+  storageBucket: "PROJECT_ID.appspot.com",
+  messagingSenderId: "XXXX",
+  appId: "XXXX"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+
 const menu = [
     { name: "Masala Chai", price: 20 },
     { name: "Adrak Chai", price: 25 },
@@ -47,17 +62,17 @@ function placeOrder() {
         return;
     }
 
-    let msg = "Hello Chai Ki Chuski ☕%0AOrder:%0A";
-    cart.forEach(i => {
-        msg += `- ${i.name} ₹${i.price}%0A`;
+    db.collection("orders").add({
+        items: cart,
+        total: totalSpan.textContent,
+        time: new Date()
     });
-    msg += `%0ATotal: ₹${totalSpan.textContent}`;
 
-    window.open(
-        "https://wa.me/918318288563?text=" + msg,
-        "_blank"
-    );
+    alert("Order placed ☕");
+    cart = [];
+    renderCart();
 }
+
 
 function validateForm() {
     let n = document.getElementById("name").value;
@@ -74,3 +89,28 @@ function validateForm() {
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
+function adminLogin() {
+    const email = document.getElementById("adminEmail").value;
+    const pass = document.getElementById("adminPass").value;
+
+    auth.signInWithEmailAndPassword(email, pass)
+        .then(() => {
+            alert("Admin Logged In ☕");
+            loadOrders();
+        })
+        .catch(err => alert(err.message));
+}
+
+function loadOrders() {
+    db.collection("orders")
+        .orderBy("time", "desc")
+        .onSnapshot(snapshot => {
+            let html = "";
+            snapshot.forEach(doc => {
+                let o = doc.data();
+                html += `<p>₹${o.total} | ${o.items.length} items</p>`;
+            });
+            document.getElementById("orders").innerHTML = html;
+        });
+}
+
