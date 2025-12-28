@@ -5,81 +5,126 @@
     <title>Chai Ki Chuski</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
-    <meta name="description" content="Chai Ki Chuski - Best chai cafe with snacks and good vibes">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
-<header>
+<!-- NAVBAR -->
+<header class="navbar">
     <h1>Chai Ki Chuski ☕</h1>
     <nav>
+        <a href="#home">Home</a>
         <a href="#menu">Menu</a>
-        <a href="#cart">Cart</a>
         <a href="#contact">Contact</a>
     </nav>
-    <button onclick="toggleDarkMode()">🌙</button>
 </header>
 
-<section class="hero">
-    <h2>Fresh Chai, Fresh Vibes</h2>
-    <p>Best chai & snacks in town</p>
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <img src="./images/hero.jpg" alt="Chai Cafe">
+
+    <div class="hero-text">
+        <h2>Fresh Chai, Fresh Vibes</h2>
+        <p>Best chai & snacks in town</p>
+        <a href="#menu" class="btn">View Menu</a>
+    </div>
 </section>
 
+<!-- MENU SECTION -->
+<section id="menu" class="reveal">
+    <h2>Our Menu</h2>
+
+    <div class="menu-grid">
+        <div class="card">
+            <img src="./images/chai.jpg">
+            <h3>Masala Chai</h3>
+            <p>₹20</p>
+        </div>
+
+        <div class="card">
+            <img src="./images/chai.jpg">
+            <h3>Adrak Chai</h3>
+            <p>₹25</p>
+        </div>
+
+        <div class="card">
+            <img src="./images/bun.jpg">
+            <h3>Bun Maska</h3>
+            <p>₹30</p>
+        </div>
+
+        <div class="card">
+            <img src="./images/samosa.jpg">
+            <h3>Samosa</h3>
+            <p>₹15</p>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews reveal">
+    <h2>What Customers Say</h2>
+
+    <div class="review-box">
+        ⭐⭐⭐⭐⭐ <br>
+        Best chai in the area!
+    </div>
+
+    <div class="review-box">
+        ⭐⭐⭐⭐⭐ <br>
+        Taste + vibes both awesome.
+    </div>
+
+    <div class="review-box">
+        ⭐⭐⭐⭐⭐ <br>
+        Daily chai spot ☕
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+    <h2>Contact Us</h2>
+    <p>📍 NANKARI IIT KANPUR (208016)</p>
+    <p>📞 +91 8318288563</p>
+
+    <div style="margin-top:30px;">
+        <iframe 
+            src="https://www.google.com/maps?q=IIT%20Kanpur&output=embed"
+            width="100%" 
+            height="300"
+            style="border:0; border-radius:10px;">
+        </iframe>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
     <p>© 2025 Chai Ki Chuski</p>
 </footer>
 
-<section id="menu">
-    <h2>Our Menu</h2>
-    <div class="menu-grid" id="menuItems"></div>
-</section>
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/918318288563?text=Hello%20Chai%20Ki%20Chuski%20☕%0AMujhe%20order%20karna%20hai:%0A-"
+   class="whatsapp"
+   target="_blank">
+   Order Now ☕
+</a>
 
-<section id="cart">
-    <h2>Your Cart</h2>
-    <ul id="cartList"></ul>
-    <h3>Total: ₹<span id="total">0</span></h3>
-    <button onclick="placeOrder()">Order on WhatsApp</button>
-</section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <form onsubmit="return validateForm()">
-        <input type="text" id="name" placeholder="Your Name"><br><br>
-        <input type="email" id="email" placeholder="Your Email"><br><br>
-        <textarea id="message" placeholder="Your Message"></textarea><br><br>
-        <button type="submit">Send</button>
-    </form>
-</section>
-
-<script src="script.js"></script>
-<!-- ===== ADMIN PANEL START ===== -->
-<section id="admin">
-    <h2>Admin Login</h2>
-
-    <input type="email" id="adminEmail" placeholder="Admin Email"><br><br>
-    <input type="password" id="adminPass" placeholder="Password"><br><br>
-
-    <button onclick="adminLogin()">Login</button>
-
-    <hr>
-
-    <h3>Orders</h3>
-    <div id="orders"></div>
-</section>
-<!-- ===== ADMIN PANEL END ===== -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<script src="script.js"></script>
+<!-- SCROLL ANIMATION SCRIPT -->
+<script>
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
-
-
